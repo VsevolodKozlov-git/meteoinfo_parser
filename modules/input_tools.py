@@ -1,6 +1,6 @@
 # Мои модули
 from modules.parsing import get_temperature_for_day
-from modules.datetime_tools import get_date_str, get_datetime_from_str
+from modules.datetime_tools import get_str_from_datetime, get_datetime_from_str
 from modules.errors_and_types import DateDoesNotExist
 # Внешние модули
 from datetime import datetime
@@ -37,7 +37,7 @@ def input_data() -> Tuple[datetime, datetime]:
                 print(f'Сообщение об ошибке:\n{e}')
                 continue
             except DateDoesNotExist:
-                print(f'Информации по дню {get_date_str(date)} нет, попробуйте другое значение')
+                print(f'Информации по дню {get_str_from_datetime(date)} нет, попробуйте другое значение')
                 continue
         return (start_date, end_date)
 
